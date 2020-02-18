@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import rospy
+import sys
 from std_msgs.msg import Int8
 
 def gripper_publisher(pwm):
@@ -20,7 +21,7 @@ if __name__ == '__main__':
 			elif key == 0:
 				gripper_publisher(100)
 			else:
-				break
+				sys.exit()
 			print("")
 	except:
 		pass
