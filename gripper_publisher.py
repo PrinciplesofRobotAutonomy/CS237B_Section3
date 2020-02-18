@@ -4,7 +4,7 @@ import sys
 from std_msgs.msg import Int8
 
 def gripper_publisher(pwm):
-	rospy.loginfo("Why don't I see this")
+	rospy.loginfo("Starting....")
 	pub = rospy.Publisher('gripper_pose', Int8, queue_size = 10)
 	rospy.init_node('gripper_publisher', anonymous = True)
 	rate = rospy.Rate(10)
