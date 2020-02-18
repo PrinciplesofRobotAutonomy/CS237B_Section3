@@ -3,6 +3,7 @@
 # Copy the gripper_subscriber script to the appropriate folder
 
 mv gripper_subscriber.py ~/catkin_ws/src/asl_turtlebot/scripts/
+chmod a+x ~/catkin_ws/src/asl_turtlebot/scripts/gripper_subscriber.py
 
 # Unzip and install pigpio
 tar xf pigpio.tar
