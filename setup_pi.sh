@@ -11,5 +11,7 @@ make
 sudo make install
 
 # Enable pigpiod as a startup service
+tar xf pigiod.service.d.tar
+sudo cp -r pigpio.service.d /etc/systemd/system
 sudo systemctl enable pigpiod
 sudo systemctl start pigpiod
