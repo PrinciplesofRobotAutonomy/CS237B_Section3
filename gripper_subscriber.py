@@ -7,7 +7,7 @@ import time
 
 SERVO_PIN = 18
 PULSE_WIDTH_OPEN = 2250
-PULSE_WIDTH_CLOSED = 1550
+PULSE_WIDTH_CLOSED = 1350
 
 class Gripper:
 	def __init__(self):
@@ -23,7 +23,8 @@ class Gripper:
 		temp = self.pulse_width
 		self.pi = pigpio.pi()
 		self.pi.set_mode(SERVO_PIN, pigpio.OUTPUT)
-		self.pulse_width = PULSE_WIDTH_CLOSED + (7 * data.data)
+		scale = (PULSE_WIDTH_OPEN - PULSE_WIDTH_CLOSED)/100
+		self.pulse_width = PULSE_WIDTH_CLOSED + (scale * data.data)
 		if (self.pulse_width >  PULSE_WIDTH_OPEN or self.pulse_width < PULSE_WIDTH_CLOSED):
 			self.pulse_width = temp
 			rospy.loginfo("Invalid pulse width")
