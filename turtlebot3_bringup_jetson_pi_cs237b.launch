@@ -8,7 +8,7 @@
 
     <node pkg="topic_tools" type="throttle" name="velodyne_throttler" args="messages /velodyne_points 3" />
 
-    <node machine="pi" type="gripper_subscriber.py" pkg="asl_turtlebot" name="gripper_subscriber" output="screen">
+    <node machine="pi" type="gripper_subscriber.py" pkg="asl_turtlebot" name="gripper_subscriber" output="screen"/>
 
     <node machine="pi" type="raspicam_node" pkg="raspicam_node" name="raspicam_node" output="screen">
 
