@@ -12,12 +12,12 @@ class ImageTransformer:
                             self.transform_image_and_repub,
                             queue_size=1,buff_size = 2**24)
         rospy.Subscriber('/raspicam_node/camera_info', CameraInfo, self.camera_info_callback, queue_size=1, buff_size=2**24)
-        self.image_repub = rospy.Publisher('/camera_relay/image_raw/compressed', CompressedImage, queue_size=1)
+        self.image_repub = rospy.Publisher('/camera_relay/image/compressed', CompressedImage, queue_size=1)
         self.camera_info_repub = rospy.Publisher('/camera_relay/camera_info', CameraInfo, queue_size=1)
 
     def transform_image_and_repub(self, msg):
         img = cv2.imdecode(np.fromstring(msg.data, np.uint8), cv2.IMREAD_COLOR)
-        img_rotated = np.transpose(img, (1, 0, 2))
+        img_rotated = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)
         repub_msg = CompressedImage()
         repub_msg.header = msg.header
         repub_msg.format = "jpeg"
