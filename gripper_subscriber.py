@@ -6,8 +6,8 @@ import pigpio
 import time
 
 SERVO_PIN = 18
-PULSE_WIDTH_OPEN = 2250
-PULSE_WIDTH_CLOSED = 1350
+PULSE_WIDTH_OPEN = 1800
+PULSE_WIDTH_CLOSED = 950
 
 class Gripper:
 	def __init__(self):
